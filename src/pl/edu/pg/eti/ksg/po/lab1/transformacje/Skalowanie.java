@@ -31,9 +31,4 @@ public class Skalowanie implements Transformacja {
     public String toString() {
         return "Skalowanie " + skalaX + "x oraz " + skalaY + "y";
     }
-
-
-
-
-
 }
