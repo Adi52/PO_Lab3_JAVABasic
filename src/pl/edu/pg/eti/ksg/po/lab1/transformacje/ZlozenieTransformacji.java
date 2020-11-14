@@ -11,7 +11,7 @@ public class ZlozenieTransformacji implements Transformacja {
 
     public Transformacja getTransformacjaOdwrotna() throws BrakTransformacjiOdwrotnejException {
         for (int i = 0; i < transformacje.length; i++) {
-            transformacje[i] = transformacje[i].getTransformacjaOdwrotna();
+            transformacje[i] = transformacje[transformacje.length - i -1].getTransformacjaOdwrotna();
         }
         return new ZlozenieTransformacji(transformacje);
     }
