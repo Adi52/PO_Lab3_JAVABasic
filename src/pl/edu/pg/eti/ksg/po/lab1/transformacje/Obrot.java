@@ -22,7 +22,6 @@ public class Obrot implements Transformacja {
         return stopnie;
     }
 
-
     @Override
     public String toString() {
         return "Obrot punktu wokol punktu (0, 0) o " + stopnie + " stopni";

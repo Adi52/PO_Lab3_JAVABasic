@@ -1,11 +1,6 @@
 package pl.edu.pg.eti.ksg.po.lab1;
 
-import pl.edu.pg.eti.ksg.po.lab1.transformacje.Translacja;
-import pl.edu.pg.eti.ksg.po.lab1.transformacje.Skalowanie;
-import pl.edu.pg.eti.ksg.po.lab1.transformacje.BrakTransformacjiOdwrotnejException;
-import pl.edu.pg.eti.ksg.po.lab1.transformacje.Punkt;
-import pl.edu.pg.eti.ksg.po.lab1.transformacje.Transformacja;
-import pl.edu.pg.eti.ksg.po.lab1.transformacje.Obrot;
+import pl.edu.pg.eti.ksg.po.lab1.transformacje.*;
 
 
 public class Javalab1 {
@@ -13,35 +8,37 @@ public class Javalab1 {
     {
 //        -- Zad 1 ---
 
-//        Punkt pkt1 = Punkt.E_X;
-//        Punkt pkt2 = Punkt.E_X;
-//
-//        System.out.println("Pobieranie X pkt1");
-//        System.out.println(pkt1.getX());
-//
-//        System.out.println("Pobieranie Y pkt1");
-//        System.out.println(pkt1.getY());
-//
-//        System.out.println("Drukowanie całego obiektu:");
-//        System.out.println(pkt1);
-//
-//        System.out.println("Porównywanie referencji: pkt1 == pkt1");
-//        System.out.println(pkt1 == pkt1);
-//
-//        System.out.println("Porównywanie referencji: pkt1 == pkt2");
-//        System.out.println(pkt1 == pkt2);
-//
-//        System.out.println("Metoda equals: pkt1.equals(pkt1)");
-//        System.out.println(pkt1.equals(pkt1));
-//
-//        System.out.println("Metoda equals: pkt1.equals(pkt2)");
-//        System.out.println(pkt1.equals(pkt2));
-//
-//        System.out.println("Metoda hashCode: pkt1.hashCode()");
-//        System.out.println(pkt1.hashCode());
-//
-//        System.out.println("Metoda hashCode: pkt2.hashCode()");
-//        System.out.println(pkt2.hashCode());
+        Punkt pkt1 = Punkt.E_X;
+        Punkt pkt2 = Punkt.E_X;
+
+        System.out.println("Pobieranie X pkt1");
+        System.out.println(pkt1.getX());
+
+        System.out.println("Pobieranie Y pkt1");
+        System.out.println(pkt1.getY());
+
+        System.out.println("Drukowanie całego obiektu:");
+        System.out.println(pkt1);
+
+        System.out.println("Porównywanie referencji: pkt1 == pkt1");
+        System.out.println(pkt1 == pkt1);
+
+        System.out.println("Porównywanie referencji: pkt1 == pkt2");
+        System.out.println(pkt1 == pkt2);
+
+        System.out.println("Metoda equals: pkt1.equals(pkt1)");
+        System.out.println(pkt1.equals(pkt1));
+
+        System.out.println("Metoda equals: pkt1.equals(pkt2)");
+        System.out.println(pkt1.equals(pkt2));
+
+        System.out.println("Metoda hashCode: pkt1.hashCode()");
+        System.out.println(pkt1.hashCode());
+
+        System.out.println("Metoda hashCode: pkt2.hashCode()");
+        System.out.println(pkt2.hashCode());
+
+        System.out.println();
 
 //        --- Zad 2 ---
 
@@ -102,7 +99,7 @@ public class Javalab1 {
         }
         System.out.println();
 
-        //        --- Zad 3 ---
+//        //        --- Zad 3 ---
 
         try
         {
@@ -117,6 +114,7 @@ public class Javalab1 {
             Punkt p3 = trr.transformuj(p2);
             System.out.println(p3);
         }
+
         catch(BrakTransformacjiOdwrotnejException ex)
         {
             ex.printStackTrace();
@@ -136,11 +134,68 @@ public class Javalab1 {
             Punkt p3 = trr.transformuj(p2);
             System.out.println(p3);
         }
+
         catch(BrakTransformacjiOdwrotnejException ex)
         {
             ex.printStackTrace();
         }
         System.out.println();
+
+        // Zad 4
+
+        try
+        {
+            Punkt p1 = new Punkt(1, 1);
+            System.out.println(p1);
+
+            Transformacja[] transformacje =  {new Translacja(5, 6), new Obrot(33)};
+
+            Transformacja tr4 = new ZlozenieTransformacji(transformacje);
+            System.out.println(tr4);
+
+            Punkt p2 = tr4.transformuj(p1);
+            System.out.println(p2);
+
+            Transformacja trr = tr4.getTransformacjaOdwrotna();
+            System.out.println(trr);
+
+            Punkt p3 = trr.transformuj(p2);
+            System.out.println(p3);
+        }
+
+        catch(BrakTransformacjiOdwrotnejException ex)
+        {
+            ex.printStackTrace();
+        }
+        System.out.println();
+
+        try
+        {
+            Punkt p1 = new Punkt(1, 1);
+            System.out.println(p1);
+
+            Transformacja[] transformacje =  {new Translacja(5, 6), new Obrot(0)};
+
+            Transformacja tr4 = new ZlozenieTransformacji(transformacje);
+            System.out.println(tr4);
+
+            Punkt p2 = tr4.transformuj(p1);
+            System.out.println(p2);
+
+            Transformacja trr = tr4.getTransformacjaOdwrotna();
+            System.out.println(trr);
+
+            Punkt p3 = trr.transformuj(p2);
+            System.out.println(p3);
+        }
+
+        catch(BrakTransformacjiOdwrotnejException ex)
+        {
+            ex.printStackTrace();
+        }
+        System.out.println();
+
+
 
     }
 }
