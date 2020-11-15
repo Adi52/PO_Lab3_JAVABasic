@@ -1,25 +1,25 @@
 package pl.edu.pg.eti.ksg.po.lab1.transformacje;
 
 public class Obrot implements Transformacja {
-    private final double stopnie;
+    private final double stopnie, radiany;
 
     public Obrot(double stopnie) {
       this.stopnie = stopnie;
+      this.radiany = Math.toRadians(stopnie);
     }
 
     @Override
-    public Transformacja getTransformacjaOdwrotna() throws BrakTransformacjiOdwrotnejException {
-        if(stopnie == 0) throw new BrakTransformacjiOdwrotnejException("Brak transformacji odwrotnej. Stopnie obrotu równe 0");
-        return new Obrot(1/stopnie);
+    public Transformacja getTransformacjaOdwrotna() {
+        return new Obrot(-stopnie);
     }
 
     @Override
     public Punkt transformuj(Punkt p) {
-        return new Punkt(p.getX() * Math.cos(stopnie) - p.getY() * Math.sin(stopnie), p.getX() * Math.sin(stopnie) + p.getY() * Math.cos(stopnie));
+        return new Punkt(p.getX() * Math.cos(radiany) - p.getY() * Math.sin(radiany), p.getX() * Math.sin(radiany) + p.getY() * Math.cos(radiany));
     }
 
-    public double getStopnie() {
-        return stopnie;
+    public double getRadiany() {
+        return radiany;
     }
 
     @Override

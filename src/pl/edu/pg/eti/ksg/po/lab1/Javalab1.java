@@ -4,8 +4,7 @@ import pl.edu.pg.eti.ksg.po.lab1.transformacje.*;
 
 
 public class Javalab1 {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
 //        -- Zad 1 ---
 
         Punkt pkt1 = Punkt.E_X;
@@ -99,13 +98,12 @@ public class Javalab1 {
         }
         System.out.println();
 
-//        //        --- Zad 3 ---
+////        //        --- Zad 3 ---
 
-        try
-        {
+        try {
             Punkt p1 = new Punkt(2, 2);
             System.out.println(p1);
-            Transformacja tr3 = new Obrot(24.3);
+            Transformacja tr3 = new Obrot(90);
             System.out.println(tr3);
             Punkt p2 = tr3.transformuj(p1);
             System.out.println(p2);
@@ -113,16 +111,12 @@ public class Javalab1 {
             System.out.println(trr);
             Punkt p3 = trr.transformuj(p2);
             System.out.println(p3);
-        }
-
-        catch(BrakTransformacjiOdwrotnejException ex)
-        {
+        } catch (BrakTransformacjiOdwrotnejException ex) {
             ex.printStackTrace();
         }
         System.out.println();
 
-        try
-        {
+        try {
             Punkt p1 = new Punkt(2, 2);
             System.out.println(p1);
             Transformacja tr3 = new Obrot(0);
@@ -133,22 +127,18 @@ public class Javalab1 {
             System.out.println(trr);
             Punkt p3 = trr.transformuj(p2);
             System.out.println(p3);
-        }
-
-        catch(BrakTransformacjiOdwrotnejException ex)
-        {
+        } catch (BrakTransformacjiOdwrotnejException ex) {
             ex.printStackTrace();
         }
         System.out.println();
 
         // Zad 4
 
-        try
-        {
+        try {
             Punkt p1 = new Punkt(1, 1);
             System.out.println(p1);
 
-            Transformacja[] transformacje =  {new Translacja(5, 6), new Obrot(33)};
+            Transformacja[] transformacje = {new Translacja(5, 6), new Obrot(33)};
 
             Transformacja tr4 = new ZlozenieTransformacji(transformacje);
             System.out.println(tr4);
@@ -161,20 +151,16 @@ public class Javalab1 {
 
             Punkt p3 = trr.transformuj(p2);
             System.out.println(p3);
-        }
-
-        catch(BrakTransformacjiOdwrotnejException ex)
-        {
+        } catch (BrakTransformacjiOdwrotnejException ex) {
             ex.printStackTrace();
         }
         System.out.println();
 
-        try
-        {
+        try {
             Punkt p1 = new Punkt(1, 1);
             System.out.println(p1);
 
-            Transformacja[] transformacje =  {new Translacja(5, 6), new Obrot(0)};
+            Transformacja[] transformacje = {new Translacja(5, 6), new Obrot(0)};
 
             Transformacja tr4 = new ZlozenieTransformacji(transformacje);
             System.out.println(tr4);
@@ -187,16 +173,10 @@ public class Javalab1 {
 
             Punkt p3 = trr.transformuj(p2);
             System.out.println(p3);
-        }
-
-        catch(BrakTransformacjiOdwrotnejException ex)
-        {
+        } catch (BrakTransformacjiOdwrotnejException ex) {
             ex.printStackTrace();
         }
         System.out.println();
-
-
-
     }
 }
 

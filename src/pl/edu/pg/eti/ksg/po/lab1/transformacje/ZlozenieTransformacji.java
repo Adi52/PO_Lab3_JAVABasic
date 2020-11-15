@@ -18,8 +18,8 @@ public class ZlozenieTransformacji implements Transformacja {
 
     @Override
     public Punkt transformuj(Punkt p) {
-        for (int i = 0; i < transformacje.length; i++) {
-            p = transformacje[i].transformuj(p);
+        for (Transformacja transformacja : transformacje) {
+            p = transformacja.transformuj(p);
         }
         return p;
     }
