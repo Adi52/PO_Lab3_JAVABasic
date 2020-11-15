@@ -10,8 +10,10 @@ public class ZlozenieTransformacji implements Transformacja {
     }
 
     public Transformacja getTransformacjaOdwrotna() throws BrakTransformacjiOdwrotnejException {
+        Transformacja[] transformacjeKopia = transformacje.clone();
         for (int i = 0; i < transformacje.length; i++) {
-            transformacje[i] = transformacje[transformacje.length - i -1].getTransformacjaOdwrotna();
+            System.out.println(transformacje.length - i -1);
+            transformacje[i] = transformacjeKopia[transformacje.length - i -1].getTransformacjaOdwrotna();
         }
         return new ZlozenieTransformacji(transformacje);
     }
